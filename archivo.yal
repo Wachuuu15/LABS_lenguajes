@@ -1,0 +1,24 @@
+{ header }
+{
+# Aquí puedes importar módulos necesarios o definir variables globales si es necesario
+}
+
+# Definiciones de expresiones regulares comunes
+let DIGITO = ['0'-'9']
+let BLANCO = [' ' '\t']
+let NUEVA_LINEA = ['\n']
+
+rule gettoken [lexbuf]:
+BLANCO+ { return lexbuf } (* skip blanks *)
+| NUEVA_LINEA { return EOL }
+| DIGITO+ { return int(lxm) }
+| '+' { return PLUS }
+| '-' { return MINUS }
+| '*' { return TIMES }
+| '/' { return DIV }
+| '(' { return LPAREN }
+| ')' { return RPAREN }
+| eof { raise('Fin de buffer') }
+
+{ trailer }
+# Puedes agregar más definiciones o reglas aquí, si es necesario
