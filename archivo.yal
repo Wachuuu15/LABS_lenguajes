@@ -1,6 +1,6 @@
 { header }
 {
-# Aquí puedes importar módulos necesarios o definir variables globales si es necesario
+
 }
 
 # Definiciones de expresiones regulares comunes
@@ -21,4 +21,3 @@ BLANCO+ { return lexbuf } (* skip blanks *)
 | eof { raise('Fin de buffer') }
 
 { trailer }
-# Puedes agregar más definiciones o reglas aquí, si es necesario
